@@ -1,25 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Box from './components/Box';
+import PosterText from './components/PosterText';
+import { BGGRAY } from './constants/colors';
 
-function App() {
+type Props = {};
+
+const App: React.FC<Props> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box bgcolor={BGGRAY}>
+      <PosterText text="hola" size={60} />
+    </Box>
   );
 }
 
