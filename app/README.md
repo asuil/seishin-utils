@@ -13,4 +13,4 @@ Just go to the gh-pages assotiated with this repo!
 3. Run npm start to execute a local development enviroment
 4. Edit ReactJS files in the src directory
 5. Run npm run build to create a static version of this web app
-6. Upload static version to the gh-pages branch running git subtree push --prefix app/build origin gh-pages
+6. Upload to github to deploy on gh-pages
