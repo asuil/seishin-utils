@@ -4,17 +4,19 @@ import Box from './components/Box';
 import Content from './components/Content';
 import NavigationBar from './components/NavigationBar';
 import Text from './components/Text';
-import { BGGRAY, WHITE } from './constants/colors';
+import { BGGRAY, BRIGHTRED, WHITE } from './constants/colors';
 
 type Props = {};
 
 const App: React.FC<Props> = () => {
   return (
     <Router basename="seishin-utils">
-      <Box bgcolor={BGGRAY}>
+      <Box bgcolor={BGGRAY} flex col h="100vh">
         <Text color={WHITE} text="Header"/>
         <NavigationBar />
-        <Content />
+        <Box flexGrow={1} bgcolor={BRIGHTRED} flex alignItems="center" justifyContent="center">
+          <Content />
+        </Box>
         <Text color={WHITE} text="Footer"/>
       </Box>
     </Router>

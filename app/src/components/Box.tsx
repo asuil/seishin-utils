@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 
 type Props = {
   children?: React.ReactNode,
+  w?: string, h?: string,
   m?: number, mx?: number, my?: number, ml?: number, mr?: number, mt?: number, mb?: number, 
   p?: number, px?: number, py?: number, pl?: number, pr?: number, pt?: number, pb?: number, 
   b?: number, bx?: number, by?: number, bl?: number, br?: number, bt?: number, bb?: number, 
-  flex?: boolean, row?: boolean, col?: boolean,
+  flex?: boolean, row?: boolean, col?: boolean, flexGrow?: number,
   alignItems?: string, justifyContent?: string,
   bgcolor?: string, color?: string, bcolor?: string,
   fontFamily?: string, fontSize?: number, fontWeight?: any, letterSpacing?: number, textDecoration?: string,
@@ -13,10 +14,11 @@ type Props = {
 
 const Box: React.FC<Props> = ({
   children,
+  w, h,
   m, mx, my, ml, mr, mt, mb,
   p, px, py, pl, pr, pt, pb,
   b, bx, by, bl, br, bt, bb,
-  flex, row, col,
+  flex, row, col, flexGrow,
   alignItems, justifyContent,
   bgcolor, color, bcolor,
   fontFamily, fontSize, fontWeight, letterSpacing, textDecoration,
@@ -40,6 +42,7 @@ const Box: React.FC<Props> = ({
 
   return (
     <div style={{
+      width: w, height: h,
       margin: m,
       marginLeft: ml || mx,
       marginRight: mr || mx,
@@ -52,7 +55,8 @@ const Box: React.FC<Props> = ({
       paddingBottom: pb || py,
       border, borderLeft, borderRight, borderTop, borderBottom,
       borderColor: bcolor,
-      display: (flex ? 'flex' : ''),
+      display: (flex ? 'flex' : ''), flexGrow,
+      flexDirection: (col && 'column') || (row && 'row') || undefined,
       alignItems, justifyContent,
       backgroundColor: bgcolor,
       color, fontFamily, fontSize, fontWeight, letterSpacing, textDecoration,

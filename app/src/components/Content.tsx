@@ -1,19 +1,27 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom';
-import { BRIGHTRED } from '../constants/colors';
-import Box from './Box'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
+import { PODCAST_QUERY, TARDES_QUERY, TOPS_QUERY } from '../constants/queries';
+import PodcastContent from './PodcastContent';
+import TardesContent from './TardesContent';
+import TopsContent from './TopsContent';
+import WelcomeContent from './WelcomeContent';
 
 const Content = () => {
-  return (
-    <Box bgcolor={BRIGHTRED}>
-      <Switch>
-        <Route path="/podcast">podcast owo</Route>
-        <Route path="/tardes-de-anime">tardes awa</Route>
-        <Route path="/tops-10+1">tops uwu</Route>
-        <Route path="/">elige</Route>
-      </Switch>
-    </Box>
-  )
+  const location = useLocation();
+  const [showPodcast, setShowPodcast] = useState(false);
+  const [showTardes, setShowTardes] = useState(false);
+  const [showTops, setShowTops] = useState(false);
+
+  useEffect(() => {
+    setShowPodcast(location.search.includes(PODCAST_QUERY));
+    setShowTardes(location.search.includes(TARDES_QUERY));
+    setShowTops(location.search.includes(TOPS_QUERY));
+  }, [location])
+
+  return (showPodcast && (<PodcastContent />))
+    || (showTardes && (<TardesContent />))
+    || (showTops && (<TopsContent />))
+    || (<WelcomeContent />)
 };
 
 export default Content;

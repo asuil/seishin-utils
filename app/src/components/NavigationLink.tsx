@@ -16,11 +16,12 @@ const NavigationLink: React.FC<Props> = ({
   const [text, setText] = useState('');
   
   useEffect(()=>{
-    setText(to.charAt(0).toUpperCase() + to.substring(1).replaceAll('-', ' '));
+    const activity = to.substring(to.indexOf('=')+1);
+    setText(activity.charAt(0).toUpperCase() + activity.substring(1).replaceAll('-', ' '));
   }, [to]);
 
   useEffect(()=>{
-    setSelected(location.pathname.includes(to));
+    setSelected(to.includes(location.search));
   }, [location, to]);
   
   return (
