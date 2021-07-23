@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/seishin-utils/static/css/main.6be070d9.chunk.css",
-    "main.js": "/seishin-utils/static/js/main.9a6b1e42.chunk.js",
-    "main.js.map": "/seishin-utils/static/js/main.9a6b1e42.chunk.js.map",
+    "main.js": "/seishin-utils/static/js/main.b13d37cc.chunk.js",
+    "main.js.map": "/seishin-utils/static/js/main.b13d37cc.chunk.js.map",
     "runtime-main.js": "/seishin-utils/static/js/runtime-main.098d5547.js",
     "runtime-main.js.map": "/seishin-utils/static/js/runtime-main.098d5547.js.map",
-    "static/js/2.4941fdfa.chunk.js": "/seishin-utils/static/js/2.4941fdfa.chunk.js",
-    "static/js/2.4941fdfa.chunk.js.map": "/seishin-utils/static/js/2.4941fdfa.chunk.js.map",
+    "static/js/2.9c6ff20c.chunk.js": "/seishin-utils/static/js/2.9c6ff20c.chunk.js",
+    "static/js/2.9c6ff20c.chunk.js.map": "/seishin-utils/static/js/2.9c6ff20c.chunk.js.map",
     "index.html": "/seishin-utils/index.html",
     "static/css/main.6be070d9.chunk.css.map": "/seishin-utils/static/css/main.6be070d9.chunk.css.map",
-    "static/js/2.4941fdfa.chunk.js.LICENSE.txt": "/seishin-utils/static/js/2.4941fdfa.chunk.js.LICENSE.txt"
+    "static/js/2.9c6ff20c.chunk.js.LICENSE.txt": "/seishin-utils/static/js/2.9c6ff20c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.098d5547.js",
-    "static/js/2.4941fdfa.chunk.js",
+    "static/js/2.9c6ff20c.chunk.js",
     "static/css/main.6be070d9.chunk.css",
-    "static/js/main.9a6b1e42.chunk.js"
+    "static/js/main.b13d37cc.chunk.js"
   ]
 }
