@@ -1,15 +1,23 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Box from './components/Box';
-import PosterText from './components/PosterText';
-import { BGGRAY } from './constants/colors';
+import Content from './components/Content';
+import NavigationBar from './components/NavigationBar';
+import Text from './components/Text';
+import { BGGRAY, WHITE } from './constants/colors';
 
 type Props = {};
 
 const App: React.FC<Props> = () => {
   return (
-    <Box bgcolor={BGGRAY}>
-      <PosterText text="hola" size={60} />
-    </Box>
+    <Router basename="seishin-utils">
+      <Box bgcolor={BGGRAY}>
+        <Text color={WHITE} text="Header"/>
+        <NavigationBar />
+        <Content />
+        <Text color={WHITE} text="Footer"/>
+      </Box>
+    </Router>
   );
 }
 

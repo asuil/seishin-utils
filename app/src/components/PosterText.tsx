@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { WHITE } from '../constants/colors';
 import Box from './Box';
 
@@ -14,9 +14,9 @@ const PosterText: React.FC<Props> = ({
   return (
     <Box
       color={WHITE}
-      fontWeight={900}
       fontSize={size}
-      letterSpacing={4}
+      letterSpacing={2}
+      fontWeight={900}
     >
       {text.toLocaleUpperCase()}
     </Box>

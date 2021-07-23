@@ -1,27 +1,43 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 type Props = {
   children?: React.ReactNode,
   m?: number, mx?: number, my?: number, ml?: number, mr?: number, mt?: number, mb?: number, 
   p?: number, px?: number, py?: number, pl?: number, pr?: number, pt?: number, pb?: number, 
+  b?: number, bx?: number, by?: number, bl?: number, br?: number, bt?: number, bb?: number, 
   flex?: boolean, row?: boolean, col?: boolean,
   alignItems?: string, justifyContent?: string,
-  bgcolor?: string, color?: string,
-  fontFamily?: string, fontSize?: number, fontWeight?: any, letterSpacing?: number,
+  bgcolor?: string, color?: string, bcolor?: string,
+  fontFamily?: string, fontSize?: number, fontWeight?: any, letterSpacing?: number, textDecoration?: string,
 };
 
 const Box: React.FC<Props> = ({
   children,
   m, mx, my, ml, mr, mt, mb,
   p, px, py, pl, pr, pt, pb,
+  b, bx, by, bl, br, bt, bb,
   flex, row, col,
   alignItems, justifyContent,
-  bgcolor,
-  color, fontFamily, fontSize, fontWeight, letterSpacing,
+  bgcolor, color, bcolor,
+  fontFamily, fontSize, fontWeight, letterSpacing, textDecoration,
 }) => {
+  const [border, setBorder] = useState('');
+  const [borderLeft, setBorderLeft] = useState('');
+  const [borderRight, setBorderRight] = useState('');
+  const [borderTop, setBorderTop] = useState('');
+  const [borderBottom, setBorderBottom] = useState('');
+
+  useEffect(() => setBorder(b ? `solid ${b}px` : ''), [b]);
+  useEffect(() => setBorderLeft((bl || bx) ? `solid ${bl || bx}px` : ''), [bl, bx]);
+  useEffect(() => setBorderRight((br || bx) ? `solid ${br || bx}px` : ''), [br, bx]);
+  useEffect(() => setBorderTop((bt || by) ? `solid ${bt || by}px` : ''), [bt, by]);
+  useEffect(() => setBorderBottom((bb || by) ? `solid ${bb || by}px` : ''), [bb, by]);
+  
   useEffect(() => {
     if (row && col) throw new Error('Choose either row or col for this flexbox');
   }, [col, row]);
+
+
   return (
     <div style={{
       margin: m,
@@ -34,10 +50,12 @@ const Box: React.FC<Props> = ({
       paddingRight: pr || px,
       paddingTop: pt || py,
       paddingBottom: pb || py,
+      border, borderLeft, borderRight, borderTop, borderBottom,
+      borderColor: bcolor,
       display: (flex ? 'flex' : ''),
       alignItems, justifyContent,
       backgroundColor: bgcolor,
-      color, fontFamily, fontSize, fontWeight, letterSpacing,
+      color, fontFamily, fontSize, fontWeight, letterSpacing, textDecoration,
     }}>
       {children}
     </div>
