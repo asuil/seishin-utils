@@ -1,16 +1,15 @@
-import React from 'react';
-import { PODCAST_QUERY, TARDES_QUERY, TOPS_QUERY } from '../constants/queries';
-import Box from './Box';
+import { Box } from '@material-ui/core';
+import QUERIES from '../constants/queries';
 import NavigationLink from './NavigationLink';
 
-const NavigationBar = () => {
-  return (
-    <Box flex>
-      <NavigationLink to={`/?activity=${PODCAST_QUERY}`} />
-      <NavigationLink to={`/?activity=${TARDES_QUERY}`} />
-      <NavigationLink to={`/?activity=${TOPS_QUERY}`} />
-    </Box>
-  )
-};
+const NavigationBar = () => (
+  <Box display="flex" height={48}>
+    {
+      Object.keys(QUERIES).map((query) => (
+        <NavigationLink key={query} to={query} />
+      ))
+    }
+  </Box>
+);
 
 export default NavigationBar;

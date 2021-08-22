@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { PODCAST_QUERY, TARDES_QUERY, TOPS_QUERY } from '../constants/queries';
-import PodcastContent from './PodcastContent';
-import TardesContent from './TardesContent';
-import TopsContent from './TopsContent';
-import WelcomeContent from './WelcomeContent';
+import QUERIES from '../constants/queries';
 
 const Content = () => {
   const location = useLocation();
-  const [showPodcast, setShowPodcast] = useState(false);
-  const [showTardes, setShowTardes] = useState(false);
-  const [showTops, setShowTops] = useState(false);
+  const [key, setKey] = useState('/');
 
   useEffect(() => {
-    setShowPodcast(location.search.includes(PODCAST_QUERY));
-    setShowTardes(location.search.includes(TARDES_QUERY));
-    setShowTops(location.search.includes(TOPS_QUERY));
-  }, [location])
+    let found = false;
+    for (let index = 0; index < Object.keys(QUERIES).length; index += 1) {
+      const query = Object.keys(QUERIES)[index];
+      if (location.search.includes(query)) { setKey(query); found = true; }
+    }
+    if (!found) setKey('/');
+  }, [location]);
 
-  return (showPodcast && (<PodcastContent />))
-    || (showTardes && (<TardesContent />))
-    || (showTops && (<TopsContent />))
-    || (<WelcomeContent />)
+  const PosterMaker: any = QUERIES[key];
+
+  return <PosterMaker />;
 };
 
 export default Content;

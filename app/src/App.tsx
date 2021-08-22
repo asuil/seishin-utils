@@ -1,26 +1,20 @@
-import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
-import Box from './components/Box';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Box } from '@material-ui/core';
 import Content from './components/Content';
 import NavigationBar from './components/NavigationBar';
-import Text from './components/Text';
 import { BGGRAY, BRIGHTRED, WHITE } from './constants/colors';
 
-type Props = {};
-
-const App: React.FC<Props> = () => {
-  return (
-    <Router basename="seishin-utils">
-      <Box bgcolor={BGGRAY} flex col h="100vh">
-        <Text color={WHITE} text="Header"/>
-        <NavigationBar />
-        <Box flexGrow={1} bgcolor={BRIGHTRED} flex alignItems="center" justifyContent="center">
-          <Content />
-        </Box>
-        <Text color={WHITE} text="Footer"/>
+const App = () => (
+  <Router basename="seishin-utils">
+    <Box color={WHITE} bgcolor={BGGRAY} display="flex" flexDirection="column" height="100vh">
+      <Box fontSize="2rem" pl={2} py={1}>Seishin Poster Maker v2.0</Box>
+      <NavigationBar />
+      <Box flexGrow={1} bgcolor={BRIGHTRED} display="flex" alignItems="center" justifyContent="center">
+        <Content />
       </Box>
-    </Router>
-  );
-}
+      <Box py={0.5} px={2} textAlign="right">© asuil, 2021</Box>
+    </Box>
+  </Router>
+);
 
 export default App;
